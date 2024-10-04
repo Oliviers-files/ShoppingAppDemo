@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct ProductCard: View {
+struct AppleProductCard: View {
     var product: AppleProduct
     
     var body: some View {
         
-        ZStack(alignment: .topTrailing) {
+        ZStack(alignment: .top) {
             VStack(spacing: 20) {
                 Image(product.image)
                     .resizable()
-                    .frame(width: 235, height: 185)
+                    .frame(width: 240, height: 210)
                     .scaledToFill()
-                
+                Spacer(minLength: 1)
                 
                 VStack (alignment: .leading) {
                     VStack {
@@ -56,12 +56,12 @@ struct ProductCard: View {
             .padding()
             .background(Color.white)
             .cornerRadius(35)
-            .shadow(radius: 5)
+            .shadow(radius: 3)
            }
-        .padding()
+        
     }
 }
 
 #Preview {
-    ProductCard(product: productList[0])
+    AppleProductCard(product: productList[0])
 }

@@ -17,13 +17,16 @@ struct ContentView: View {
                 LazyVGrid(columns: columns , spacing: 1) {
                     
                     VStack(spacing: 20) {
-                        Image("AirpodsMax")
+                        Image("mcdonalds")
                             .resizable()
+                            .frame(width: 280)
                             .scaledToFit()
+                            .cornerRadius(10)
+                            
                         
                         VStack (alignment: .leading) {
                             VStack {
-                                Text("Airpods Max")
+                                Text("McDonald's")
                                     .font(.system(size: 30))
                                     .bold()
                             }
@@ -36,7 +39,7 @@ struct ContentView: View {
                                 
                             }
                             HStack {
-                                Text("AED 2,099")
+                                Text("")
                                     .font(.subheadline)
                                 
                                 
@@ -49,7 +52,7 @@ struct ContentView: View {
                                         .fill(Color.black)
                                         .frame(width: 80, height: 50)
                                         .overlay {
-                                            Text("Buy")
+                                            Text("Shop")
                                                 .font(.title3)
                                                 .bold()
                                                 .foregroundStyle(.white)
@@ -71,13 +74,14 @@ struct ContentView: View {
                 
                 ZStack(alignment: .topTrailing) {
                     VStack(spacing: 10) {
-                        Image("mba13-midnight")
+                        Image(systemName: "apple.logo")
                             .resizable()
+                            .frame(width: 195 ,height: 240)
                             .scaledToFit()
                         
                         VStack (alignment: .leading) {
                             VStack {
-                                Text("MackBook Air")
+                                Text("Apple Store")
                                     .font(.system(size: 30))
                                     .bold()
                             }
@@ -90,28 +94,31 @@ struct ContentView: View {
                                 
                             }
                             HStack {
-                                Text("AED 2,099")
+                                Text("")
                                     .font(.subheadline)
                                 
                                 
                                 Spacer()
                                 
-                                Button {
-                                    print("see/Buy product")
-                                } label: {
-                                    RoundedRectangle(cornerRadius: 40)
-                                        .fill(Color.black)
-                                        .frame(width: 80, height: 50)
-                                        .overlay {
-                                            Text("Buy")
-                                                .font(.title3)
-                                                .bold()
-                                                .foregroundStyle(.white)
-                                        }
-                                }
+                                    Button {
+                                        print("see/Buy product")
+                                    } label: {
+                                        RoundedRectangle(cornerRadius: 40)
+                                            .fill(Color.black)
+                                            .frame(width: 80, height: 50)
+                                            .overlay {
+                                                NavigationLink {
+                                                    ItemView()
+                                                } label: {
+                                                    Text("Shop")
+                                                        .font(.title3)
+                                                        .bold()
+                                                        .foregroundStyle(.white)
+                                                }
+                                            }
+                                    }
+                                    .padding(.bottom, 1)
                             }
-                            .padding(.bottom, 1)
-                            
                         }
                     }
                     .frame(width: 300, height: 400)
@@ -123,13 +130,15 @@ struct ContentView: View {
                 
                 ZStack(alignment: .topTrailing) {
                     VStack(spacing: 10) {
-                        Image("appleWatch")
+                        Image("f21")
                             .resizable()
+                            .frame(width: 280)
                             .scaledToFit()
+                            .cornerRadius(10)
                         
                         VStack (alignment: .leading) {
                             VStack {
-                                Text("Apple Watch")
+                                Text("Forever 21")
                                     .font(.system(size: 30))
                                     .bold()
                             }
@@ -142,7 +151,7 @@ struct ContentView: View {
                                 
                             }
                             HStack {
-                                Text("AED 2,099")
+                                Text("")
                                     .font(.subheadline)
                                 
                                 
@@ -155,7 +164,7 @@ struct ContentView: View {
                                         .fill(Color.black)
                                         .frame(width: 80, height: 50)
                                         .overlay {
-                                            Text("Buy")
+                                            Text("Shop")
                                                 .font(.title3)
                                                 .bold()
                                                 .foregroundStyle(.white)
@@ -174,7 +183,7 @@ struct ContentView: View {
                 }
                 .padding()
             }
-            .navigationTitle(Text("Products"))
+            .navigationTitle(Text("Shops/Brands"))
         }
     }
 }
