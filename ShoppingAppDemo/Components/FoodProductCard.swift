@@ -34,17 +34,21 @@ struct FoodProductCard: View {
                         Spacer()
                         
                         Button {
-                            print("see/Buy product")
-                        } label: {
-                            RoundedRectangle(cornerRadius: 40)
-                                .fill(Color.black)
-                                .frame(width: 80, height: 50)
-                                .overlay {
-                                    Text("Buy")
-                                        .font(.title3)
-                                        .bold()
-                                        .foregroundStyle(.white)
-                                }
+                                print("see/Buy product")
+                            } label: {
+                               // NavigationLink(destination: ProMaxView(product: product)) {
+                                   //6 ProMaxView()
+                                    /* } label:*/
+                                RoundedRectangle(cornerRadius: 40)
+                                    .fill(Color.black)
+                                    .frame(width: 80, height: 50)
+                                    .overlay {
+                                        Text("Buy")
+                                            .font(.title3)
+                                            .bold()
+                                            .foregroundStyle(.white)
+                               //     }
+                            }
                         }
                     }
                     .padding(.bottom, 1)

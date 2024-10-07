@@ -183,7 +183,10 @@ struct ContentView: View {
                 }
                 .padding()
             }
-            .navigationTitle(Text("Shops/Brands"))
+            .navigationTitle("Shops/Brands")
+            .toolbar {
+                CartButton(numberOfItems: 1 )
+            }
         }
     }
 }

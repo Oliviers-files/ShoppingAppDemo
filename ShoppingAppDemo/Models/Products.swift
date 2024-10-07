@@ -37,12 +37,12 @@ var menuItem = [MacMenu(name: "americanoCafe", image: "americanoCafe", price: 19
                   ]
 
 var productList = [AppleProduct(name: "Airpods Max", image: "AirpodsMax", price: 2099),
-                   AppleProduct(name: "Airpods Pro 2", image: "airpodsPro-2case", price: 2099),
-                   AppleProduct(name: "Mackbook Air 13", image: "mba13-midnight", price: 2099),
-                   AppleProduct(name: "Mackbook Air 15", image: "mba15-silver-open", price: 2099),
-                   AppleProduct(name: "Mackbook Pro", image: "14-spcgry", price: 2099),
-                   AppleProduct(name: "Apple Watch", image: "appleWatch", price: 1599),
-                   AppleProduct(name: "Apple Watch Ultra", image: "watchHermes-ultra", price: 2099),
-                   AppleProduct(name: "Apple Watch S10", image: "APW", price: 2099),
-                   AppleProduct(name: "Apple Watch S10", image: "watch40-s10B", price: 2099)
+                   AppleProduct(name: "Airpods Pro 2", image: "airpodsPro-2case", price: 1099),
+                   AppleProduct(name: "Mackbook Air 13", image: "mba13-midnight", price: 3099),
+                   AppleProduct(name: "Mackbook Air 15", image: "mba15-silver-open", price: 3599),
+                   AppleProduct(name: "Mackbook Pro", image: "14-spcgry", price: 4099),
+                   AppleProduct(name: "Apple Watch", image: "appleWatch", price: 2599),
+                   AppleProduct(name: "Apple Watch Ultra", image: "watchHermes-ultra", price: 2699),
+                   AppleProduct(name: "Apple Watch S10", image: "APW", price: 1779),
+                   AppleProduct(name: "Apple Watch S10", image: "watch40-s10B", price: 1249)
                   ]

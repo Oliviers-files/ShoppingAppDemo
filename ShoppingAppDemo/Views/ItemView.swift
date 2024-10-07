@@ -18,31 +18,26 @@ struct ItemView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                //ZStack {
-                   // VStack(alignment: .leading, spacing: 10) {
-                        // First LazyHGrid with a fixed height for the ScrollView
+                // First LazyHGrid with a fixed height for the ScrollView
                 ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHGrid(rows: rows, spacing: 20) {
-                                    ForEach(productList, id: \.id) { Product in
-                                        AppleProductCard(product: Product)
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                            //.frame(height: 690) // Fixed height for the grid
-                            .navigationTitle("Apple Products")
-                            .toolbar {
-                                NavigationLink {
-                                    CartView()
-                                } label: {
-                                    CartButton(numberOfItems: 1)
-                                }
-                            }
+                    LazyHGrid(rows: rows, spacing: 20) {
+                        ForEach(productList, id: \.id) { Product in
+                            AppleProductCard(product: Product)
+                        }
                     }
+                    .padding(.horizontal)
                 }
-           // }
-            
-        //}
+                //.frame(height: 690) // Fixed height for the grid
+                .navigationTitle("Apple Products")
+                .toolbar {
+//                    NavigationLink {
+//                        CartView()
+//                    } label: {
+                        CartButton(numberOfItems: 1)
+                    //}
+                }
+            }
+        }
     }
 }
 
