@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppleProductCard: View {
+    @EnvironmentObject var cartManager: CartManager
     var product: AppleProduct
     
     var body: some View {
@@ -18,19 +19,40 @@ struct AppleProductCard: View {
                     .resizable()
                     .frame(width: 240, height: 210)
                     .scaledToFill()
+                    
                 Spacer(minLength: 1)
                 
                 VStack (alignment: .leading) {
-                    VStack {
+                    VStack (alignment: .leading){
                         Text(product.name)
                             .font(.title)
                             .bold()
+                        
+                        Text("AED \(product.price)")
+                            .font(.subheadline)
                     }
                     .frame(alignment: .leading)
                     
                     HStack {
-                        Text("AED \(product.price)")
-                            .font(.subheadline)
+                        
+                        RoundedRectangle(cornerRadius: 30)
+                                .fill(Color.blue)
+                                .frame(width: 80, height: 45)
+                                .overlay {
+                                    Button {
+                                        cartManager.addToCart(product: product)
+                                    } label: {
+                                        HStack {
+                                            Image(systemName:"bag")
+                                                .resizable()
+                                                .foregroundStyle(.white)
+                                                .frame(width: 23, height: 20)
+                                            Text("Bag")
+                                                .foregroundStyle(.white)
+                                                .font(.subheadline)
+                                        }
+                                    }
+                                }
                         
                         Spacer()
                         
@@ -52,6 +74,7 @@ struct AppleProductCard: View {
                     }
                     .padding(.bottom, 1)
                 }
+                
             }
             .scaledToFit()
             .frame(width: 250, height: 350)
@@ -59,6 +82,7 @@ struct AppleProductCard: View {
             .background(Color.white)
             .cornerRadius(35)
             .shadow(radius: 3)
+            
            }
         
     }
@@ -66,4 +90,5 @@ struct AppleProductCard: View {
 
 #Preview {
     AppleProductCard(product: productList[0])
+        .environmentObject(CartManager())
 }

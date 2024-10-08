@@ -6,7 +6,9 @@
 //
 
 import Foundation
-                   // so the changes can be updated to the Cart UI
+        
+// so the changes can be updated to the Cart UI
+
 class CartManager: ObservableObject {
     @Published private(set) var appleProducts : [AppleProduct] = []
     @Published private(set) var macProducts : [MacMenu] = []

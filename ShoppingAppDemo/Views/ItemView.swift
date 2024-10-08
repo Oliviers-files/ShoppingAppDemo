@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ItemView: View {
+    @StateObject var cartManager = CartManager()
+    
     var rows = [GridItem(.flexible(minimum: 410), spacing: 10)]
     
     let columns = [
@@ -23,6 +25,7 @@ struct ItemView: View {
                     LazyHGrid(rows: rows, spacing: 20) {
                         ForEach(productList, id: \.id) { Product in
                             AppleProductCard(product: Product)
+                                .environmentObject(cartManager)
                         }
                     }
                     .padding(.horizontal)
@@ -30,11 +33,9 @@ struct ItemView: View {
                 //.frame(height: 690) // Fixed height for the grid
                 .navigationTitle("Apple Products")
                 .toolbar {
-//                    NavigationLink {
-//                        CartView()
-//                    } label: {
-                        CartButton(numberOfItems: 1)
-                    //}
+                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
+                        CartButton(numberOfItems: cartManager.appleProducts.count)
+                    }
                 }
             }
         }

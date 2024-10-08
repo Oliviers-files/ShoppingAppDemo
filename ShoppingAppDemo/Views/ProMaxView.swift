@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProMaxView: View {
     var product: AppleProduct
+    @StateObject var cartManager = CartManager()
+    
     var rows = [GridItem(.fixed(410), spacing: 10)]
     let columns = [ GridItem(.flexible(minimum: 112))]
     
@@ -35,7 +37,8 @@ struct ProMaxView: View {
                             Spacer()
                             
                             Button {
-                                
+                                cartManager.addToCart(product: product)
+                                    //.environmentObject(cartManager)
                             } label: {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(Color(red: 0.005, green: 0.442, blue: 0.889))
@@ -92,13 +95,16 @@ struct ProMaxView: View {
                         
                     }
                     .padding()
-                    .padding(.top,-45)
+                    .padding(.top,-40)
                 }
             }
         }
         .navigationTitle("Buy \(product.name)")
         .toolbar {
-            CartButton(numberOfItems: 1)
+            NavigationLink(destination: CartView().environmentObject(cartManager)) {
+                CartButton(numberOfItems: cartManager.appleProducts.count)
+                    
+            }
         }
     }
 }
@@ -106,5 +112,6 @@ struct ProMaxView: View {
 #Preview {
     NavigationView {
         ProMaxView(product: productList[0])
+            .environmentObject(CartManager())
     }
 }
