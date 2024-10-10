@@ -52,10 +52,14 @@ struct ContentView: View {
                                     .fill(Color.black)
                                     .frame(width: 80, height: 50)
                                     .overlay {
-                                        Text("Shop")
-                                            .font(.title3)
-                                            .bold()
-                                            .foregroundStyle(.white)
+                                        NavigationLink {
+                                            McDonaldView()
+                                        } label: {
+                                            Text("Shop")
+                                                .font(.title3)
+                                                .bold()
+                                                .foregroundStyle(.white)
+                                        }
                                     }
                             }
                         }

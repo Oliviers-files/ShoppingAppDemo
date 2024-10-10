@@ -9,6 +9,7 @@ import SwiftUI
 
 struct McDonaldView: View {
     var rows = [GridItem(.flexible(minimum: 410), spacing: 10)]
+    @StateObject var cartManager = CartManager()
     
     let columns = [
         GridItem(.flexible()),
@@ -16,22 +17,23 @@ struct McDonaldView: View {
     ]
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("McDonald's" + "  >")
-                .font(.title)
-                .bold()
-                .padding(.horizontal)
-            
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: rows, spacing: 20) {
-                    ForEach(menuItem, id: \.id) { Product in
-                        FoodProductCard(product: Product)
+        NavigationView {
+            ScrollView {
+                ScrollView(.horizontal) {
+                    LazyHGrid(rows: rows, spacing: 20) {
+                        ForEach(menuItem, id: \.id) { Product in
+                            FoodProductCard(product: Product)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                .navigationTitle("MacDonald's")
+                .toolbar {
+                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
+                        CartButton(numberOfItems: cartManager.appleProducts.count)
                     }
                 }
-                .padding(.horizontal)
             }
-            .frame(height: 720) // Fixed height for the grid
-            .navigationTitle("McDonald")
         }
     }
 }

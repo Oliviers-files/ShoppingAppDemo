@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FoodProductCard: View {
     var product: MacMenu
+    @EnvironmentObject var cartManager: CartManager
+    
     var body: some View {
         
         ZStack(alignment: .top) {
@@ -24,21 +26,38 @@ struct FoodProductCard: View {
                         Text(product.name)
                             .font(.title)
                             .bold()
+                        Text("AED \(product.price)")
+                            .font(.subheadline)
                     }
                     .frame(alignment: .leading)
                     
                     HStack {
-                        Text("AED \(product.price)")
-                            .font(.subheadline)
+                        
+                        RoundedRectangle(cornerRadius: 30)
+                                .fill(Color.blue)
+                                .frame(width: 80, height: 45)
+                                .overlay {
+                                    Button {
+                                        cartManager.addToCart(product: product)
+                                    } label: {
+                                        HStack {
+                                            Image(systemName:"bag")
+                                                .resizable()
+                                                .foregroundStyle(.white)
+                                                .frame(width: 23, height: 20)
+                                            Text("Bag")
+                                                .foregroundStyle(.white)
+                                                .font(.subheadline)
+                                        }
+                                    }
+                                }
                         
                         Spacer()
                         
                         Button {
                                 print("see/Buy product")
                             } label: {
-                               // NavigationLink(destination: ProMaxView(product: product)) {
-                                   //6 ProMaxView()
-                                    /* } label:*/
+                               
                                 RoundedRectangle(cornerRadius: 40)
                                     .fill(Color.black)
                                     .frame(width: 80, height: 50)
@@ -47,7 +66,7 @@ struct FoodProductCard: View {
                                             .font(.title3)
                                             .bold()
                                             .foregroundStyle(.white)
-                               //     }
+                               
                             }
                         }
                     }
@@ -66,4 +85,5 @@ struct FoodProductCard: View {
 
 #Preview {
     FoodProductCard(product: menuItem[0])
+        .environmentObject(CartManager())
 }
