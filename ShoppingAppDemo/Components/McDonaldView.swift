@@ -19,7 +19,7 @@ struct McDonaldView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: rows, spacing: 20) {
                         ForEach(menuItem, id: \.id) { Product in
                             FoodProductCard(product: Product)

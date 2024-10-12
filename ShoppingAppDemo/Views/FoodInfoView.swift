@@ -109,6 +109,8 @@ struct FoodInfoView: View {
 }
 
 #Preview {
-    FoodInfoView(product: menuItem[0])
-        .environmentObject(CartManager())
+    NavigationView{
+        FoodInfoView(product: menuItem[0])
+            .environmentObject(CartManager())
+    }
 }

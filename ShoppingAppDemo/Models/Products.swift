@@ -22,9 +22,9 @@ struct MacMenu: Identifiable {
     var price: Int
 }
 
-var menuItem = [MacMenu(name: "americanoCafe", image: "americanoCafe", price: 19),
-                MacMenu(name: "Airpods Pro 2", image: "bigmac", price: 15),
-                MacMenu(name: "Mackbook Air 13", image: "BIgMac-Meal", price: 11),
+var menuItem = [MacMenu(name: "AmericanoCafe", image: "americanoCafe", price: 19),
+                MacMenu(name: "BigMac", image: "bigmac", price: 15),
+                MacMenu(name: "BogMac Super", image: "BIgMac-Meal", price: 11),
                 MacMenu(name: "Cappuccino", image: "Cappuccino", price: 9),
                 MacMenu(name: "Caramel", image: "Caramel", price: 10),
                 MacMenu(name: "CocaCola", image: "Coca-cola", price: 10),

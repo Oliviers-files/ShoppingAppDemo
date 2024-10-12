@@ -58,16 +58,18 @@ struct FoodProductCard: View {
                                 print("see/Buy product")
                             } label: {
                                
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(Color.black)
-                                    .frame(width: 80, height: 50)
-                                    .overlay {
-                                        Text("Buy")
-                                            .font(.title3)
-                                            .bold()
-                                            .foregroundStyle(.white)
-                               
-                            }
+                                NavigationLink(destination: FoodInfoView(product: product)) {
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .fill(Color.black)
+                                        .frame(width: 80, height: 50)
+                                        .overlay {
+                                            Text("Buy")
+                                                .font(.title3)
+                                                .bold()
+                                                .foregroundStyle(.white)
+                                            
+                                        }
+                                }
                         }
                     }
                     .padding(.bottom, 1)
