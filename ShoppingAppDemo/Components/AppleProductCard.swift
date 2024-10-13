@@ -13,13 +13,13 @@ struct AppleProductCard: View {
     
     var body: some View {
         
-        ZStack(alignment: .top) {
-            VStack(spacing: 20) {
+        VStack {
+            VStack(spacing: 7) {
                 Image(product.image)
                     .resizable()
                     .frame(width: 240, height: 210)
                     .scaledToFill()
-                    
+                
                 Spacer(minLength: 1)
                 
                 VStack (alignment: .leading) {
@@ -31,17 +31,18 @@ struct AppleProductCard: View {
                         Text("AED \(product.price)")
                             .font(.subheadline)
                     }
-                    .frame(alignment: .leading)
+                    //.frame(alignment: .leading)
                     
-                    HStack {
-                        
-                        RoundedRectangle(cornerRadius: 30)
-                                .fill(Color.blue)
-                                .frame(width: 80, height: 45)
-                                .overlay {
-                                    Button {
-                                        cartManager.addToCart(product: product)
-                                    } label: {
+                    VStack {
+                        HStack {
+                            
+                            Button {
+                                cartManager.addToCart(product: product)
+                            } label: {
+                                RoundedRectangle(cornerRadius: 30)
+                                    .fill(Color.blue)
+                                    .frame(width: 80, height: 45)
+                                    .overlay {
                                         HStack {
                                             Image(systemName:"bag")
                                                 .resizable()
@@ -52,38 +53,41 @@ struct AppleProductCard: View {
                                                 .font(.subheadline)
                                         }
                                     }
+                            }
+                            
+                            Spacer()
+                            
+                            Button {
+                                print("see/Buy product")
+                            } label: {
+                                NavigationLink(destination: ProMaxView(product: product)) {
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .fill(Color.black)
+                                        .frame(width: 80, height: 50)
+                                        .overlay {
+                                            Text("Buy")
+                                                .font(.title3)
+                                                .bold()
+                                                .foregroundStyle(.white)
+                                        }
                                 }
-                        
-                        Spacer()
-                        
-                        Button {
-                            print("see/Buy product")
-                        } label: {
-                            NavigationLink(destination: ProMaxView(product: product)) {
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(Color.black)
-                                    .frame(width: 80, height: 50)
-                                    .overlay {
-                                        Text("Buy")
-                                            .font(.title3)
-                                            .bold()
-                                            .foregroundStyle(.white)
-                                    }
                             }
                         }
+                        .padding(10)
                     }
-                    .padding(.bottom, 1)
                 }
-                
+                .frame(width: 260)
+                //.padding(1)
+            }
+            .padding()
+            
             }
             .scaledToFit()
-            .frame(width: 250, height: 350)
+            .frame(width: 250, height: 330)
             .padding()
             .background(Color.white)
             .cornerRadius(35)
             .shadow(radius: 3)
-            
-           }
         
     }
 }

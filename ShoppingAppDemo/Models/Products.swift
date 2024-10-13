@@ -44,6 +44,5 @@ var productList = [AppleProduct(name: "Airpods Max", image: "AirpodsMax", price:
                    AppleProduct(name: "Mackbook Pro", image: "mbp14", price: 4099),
                    AppleProduct(name: "Apple Watch", image: "appleWatch", price: 2599),
                    AppleProduct(name: "Apple Watch Ultra", image: "watchHermes-ultra", price: 2699),
-                   AppleProduct(name: "Apple Watch S10", image: "APW", price: 1779),
                    AppleProduct(name: "Apple Watch S10", image: "watch40-s10B", price: 1249)
                   ]

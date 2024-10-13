@@ -23,6 +23,7 @@ struct ItemView: View {
                 // First LazyHGrid with a fixed height for the ScrollView
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: rows, spacing: 20) {
+                        
                         ForEach(productList, id: \.id) { Product in
                             AppleProductCard(product: Product)
                                 .environmentObject(cartManager)

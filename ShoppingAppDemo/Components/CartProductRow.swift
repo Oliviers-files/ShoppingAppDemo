@@ -48,7 +48,7 @@ struct CartProductRow: View {
                 }
                 .padding(.trailing, 23)
             }
-            .frame(width: 420, height: 140)
+            .frame(width: 410, height: 140)
             .background(Color.white)
             .cornerRadius(35)
             .shadow(radius: 3)

@@ -10,6 +10,7 @@ import SwiftUI
 struct CartView: View {
     @EnvironmentObject var cartManager: CartManager
     
+    
     var body: some View {
         ScrollView {
             if cartManager.appleProducts.count > 0 {
@@ -38,6 +39,13 @@ struct CartView: View {
         }
         .padding()
         Divider()
+                
+           /* Official apple Payment button :
+            ApplePaymentButton(action: {}) */
+                
+                PaymentButton()
+                    
+                
             } else {
                 Text("Your cart is empty.")
             }
