@@ -12,35 +12,28 @@ struct SheetView: View {
     var body: some View {
         
        
+        
         ZStack {
-            
             VStack {
-
+                
                 Spacer()
                 
-                HStack {
-                    Image("AP")
-                        .resizable()
-                        .frame(width: 95, height: 55)
-                }
-                .padding(.trailing, 330)
-
                 HStack {
                     
                     Image("card")
                         .resizable()
                         .frame(width: 90, height: 60)
-                     
-                  VStack (alignment: .leading){
-                    Text("Simulated Card - Visa")
-                          .font(.system(size: 20))
-                          .fontWeight(.medium)
-                      
-                      
-                    Text("**** 5432")
-                          .foregroundStyle(.gray)
+                    
+                    VStack (alignment: .leading){
+                        Text("Simulated Card - Visa")
+                            .font(.system(size: 20))
+                            .fontWeight(.medium)
+                        
+                        
+                        Text("**** 5432")
+                            .foregroundStyle(.gray)
                     }
-                  .frame(width: 195)
+                    .frame(width: 195)
                     
                     Spacer()
                     
@@ -48,10 +41,10 @@ struct SheetView: View {
                         Image(systemName: "chevron.right")
                             .foregroundStyle(Color.gray)
                     }
-                    .frame(width: 75, alignment: .trailing)
+                    .frame(width: 40, alignment: .trailing)
                 }
                 .scaledToFit()
-                .frame(width: 380, height: 60, alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width * 0.85, height: 60, alignment: .leading)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
@@ -86,121 +79,124 @@ struct SheetView: View {
                             Image(systemName: "chevron.right")
                                 .foregroundStyle(Color.gray)
                         }
-                        .frame(width: 15, height: 115, alignment: .trailing)
+                        .frame(height: 115, alignment: .trailing)
                         .padding(.bottom, 50)
-                        .padding(.leading,60)
+                        .padding(.leading,30)
                         
                     }
                     .frame(alignment: .topLeading)
                 }
                 .scaledToFit()
-                .frame(width: 380, height: 120, alignment: .topLeading)
+                .frame(width: UIScreen.main.bounds.width * 0.85, height: 110, alignment: .topLeading)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 2)
                 
-            HStack {
-                HStack (alignment: .top) {
-                    HStack {
-                    VStack(alignment: .leading) {
-                        Image(systemName: "shippingbox.fill")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .symbolRenderingMode(.hierarchical)
-                    }
-                }
-                .frame(height: 100, alignment: .topLeading)
-                     
-                  VStack (alignment: .leading){
-                    Text("Arriving")
-                          .font(.system(size: 20))
-                          .fontWeight(.medium)
-                          .foregroundStyle(.gray)
-                      
-                      
-                    Text("Dec 10 - 15")
-                          .font(.system(size: 20))
-                    Text("Delivery")
-                          .font(.system(size: 20))
-                      
-                    }
-                  .frame(width: 245, alignment: .leading)
-                    
-                    Spacer()
-                    
-                }
-                .frame(alignment: .topLeading)
-                
                 HStack {
-                    Image(systemName: "chevron.right")
-                        .foregroundStyle(Color.gray)
-                }
-                .frame(width: 80, alignment: .trailing)
-                .padding(.bottom, 35)
-                
+                    HStack (alignment: .top) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Image(systemName: "shippingbox.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .symbolRenderingMode(.hierarchical)
+                            }
+                        }
+                        .frame(height: 100, alignment: .topLeading)
+                        
+                        VStack (alignment: .leading){
+                            Text("Arriving")
+                                .font(.system(size: 20))
+                                .fontWeight(.medium)
+                                .foregroundStyle(.gray)
+                            
+                            
+                            Text("Dec 10 - 15")
+                                .font(.system(size: 20))
+                            Text("Delivery")
+                                .font(.system(size: 20))
+                            
+                        }
+                        .frame(width: 245, alignment: .leading)
+                        
+                        Spacer()
+                        
+                    }
+                    .frame(alignment: .topLeading)
+                    
+                    HStack {
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(Color.gray)
+                    }
+                    .frame(width: 50, alignment: .trailing)
+                    .padding(.bottom, 35)
+                    
                 }
                 .scaledToFit()
-                .frame(width: 380, height: 70, alignment: .topLeading)
+                .frame(width: UIScreen.main.bounds.width * 0.85, height: 70, alignment: .topLeading)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 2)
                 .padding(.bottom)
                 
-            VStack {
-                HStack {
-                    VStack (alignment: .leading) {
-                        Text("Pay Total")
+                
+                VStack {
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text("Pay Total")
+                                .font(.system(size: 20))
+                                .fontWeight(.medium)
+                                .foregroundStyle(.gray)
+                            
+                            Text("AED 4500.69")
+                                .font(.system(size: 30))
+                                .fontWeight(.heavy)
+                                .foregroundStyle(.black)
+                        }
+                        .frame(width: 200)
+                        .padding(.leading, 15)
+                        
+                        Spacer()
+                        
+                        HStack {
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(Color.gray)
+                        }
+                        .padding(.leading, 170)
+                        
+                        
+                    }
+                    
+                    Divider()
+                    
+                    VStack{
+                        Image(systemName: "faceid")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .foregroundStyle(Color.blue)
+                        
+                        Text("Pay with Face ID")
                             .font(.system(size: 20))
                             .fontWeight(.medium)
-                            .foregroundStyle(.gray)
-                        
-                        Text("AED 4500.69")
-                            .font(.system(size: 30))
-                            .fontWeight(.heavy)
-                            .foregroundStyle(.black)
                     }
-                    .frame(width: 200)
-                    .padding(.leading, 15)
+                    .padding(2)
+                    //.padding(.leading, 40)
                     
-                    Spacer()
-                    
-                    HStack {
-                        Image(systemName: "chevron.right")
-                            .foregroundStyle(Color.gray)
-                    }
-                    .padding(.leading, 170)
-                    
-                    
-                }
-                
-                Divider()
-                
-                VStack{
-                    Image(systemName: "faceid")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundStyle(Color.blue)
-                    
-                    Text("Pay with Face ID")
-                        .font(.system(size: 20))
-                        .fontWeight(.medium)
-                }
-                .padding()
-                .padding(.leading, 40)
-                
                 }
                 .scaledToFit()
-                .frame(width: 450, height: 185, alignment: .topLeading)
+                .frame(width: 400, height: 190, alignment: .topLeading)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
                 .shadow(radius: 2)
-
+                
             }
+            //.frame(width: 190/*UIScreen.main.bounds.width * 0.9*/)
         }
         .ignoresSafeArea()
+        
     }
 }
 

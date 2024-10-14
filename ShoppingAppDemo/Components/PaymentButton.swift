@@ -29,7 +29,7 @@ struct PaymentButton: View {
         .padding()
         .sheet(isPresented: $showBottomSheet) {
             BottomSheetView()
-                .presentationDetents([.height(640)])
+                .presentationDetents([.height(620)])
                 .background((Color(red: 0.949, green: 0.949, blue: 0.949)))
         }
         

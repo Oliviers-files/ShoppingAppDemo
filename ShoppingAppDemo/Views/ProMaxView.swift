@@ -21,7 +21,7 @@ struct ProMaxView: View {
                 VStack {
                     Image(product.image)
                         .resizable()
-                        .frame(width: 395, height: 410)
+                        .frame(width: UIScreen.main.bounds.width * 0.95, height: 390)
                     
                     VStack {
                         HStack {

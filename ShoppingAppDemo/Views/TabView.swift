@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct TabView: View {
+    @State private var selectedTab: Int = 0
+    @State private var showCreateThreadView = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack{
+            
+        }
     }
 }
 
-#Preview {
-    TabView()
+struct TabView_Previews: PreviewProvider {
+    static var previews: some View {
+        TabView()
+    }
 }

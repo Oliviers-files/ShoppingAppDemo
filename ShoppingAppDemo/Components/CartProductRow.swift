@@ -13,6 +13,7 @@ struct CartProductRow: View {
     
     var body: some View {
         
+        ZStack {
             HStack(spacing: 20) {
                 Image(product.image)
                     .resizable()
@@ -24,17 +25,18 @@ struct CartProductRow: View {
                 
                 
                 VStack(alignment: .leading, spacing: 10) {
-                        Text(product.name)
-                            .font(.system(size: 20))
-                            .bold()
+                    Text(product.name)
+                        .font(.system(size: 20))
+                        .bold()
                     
-                        Text("AED \(product.price)")
-                            .font(.subheadline)
-                        
-                    }
-                    .frame(width: 120)
-                    .padding()
+                    Text("AED \(product.price)")
+                        .font(.subheadline)
+                    
+                }
+                .frame(width: 115)
+                
                 Spacer()
+                
                 Divider()
                 
                 VStack {
@@ -48,10 +50,12 @@ struct CartProductRow: View {
                 }
                 .padding(.trailing, 23)
             }
-            .frame(width: 410, height: 140)
+            .frame(width: UIScreen.main.bounds.width * 0.95/*380*/, height: 120)
             .background(Color.white)
             .cornerRadius(35)
             .shadow(radius: 3)
+        }
+        //.padding()
     }
 }
 
