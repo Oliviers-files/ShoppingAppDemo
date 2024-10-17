@@ -69,25 +69,25 @@ struct ProMaxView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: rows, spacing: 20) {
-                        Image("AMc2")
+                        Image(product.look)
                             .resizable()
                             .frame(width: 245, height: 300)
                             .cornerRadius(25)
                             .shadow(radius: 3)
                         
-                        Image("AMc3")
+                        Image(product.look2)
                             .resizable()
                             .frame(width: 245, height: 300)
                             .cornerRadius(25)
                             .shadow(radius: 3)
                         
-                        Image("AMc5")
+                        Image(product.look3)
                             .resizable()
                             .frame(width: 265, height: 300)
                             .cornerRadius(25)
                             .shadow(radius: 3)
                         
-                        Image("AMc6")
+                        Image(product.look4)
                             .resizable()
                             .frame(width: 245, height: 300)
                             .cornerRadius(25)
@@ -99,7 +99,7 @@ struct ProMaxView: View {
                 }
             }
         }
-        .navigationTitle("Buy \(product.name)")
+        //.navigationTitle("Buy \(product.name)")
         .toolbar {
             NavigationLink(destination: CartView().environmentObject(cartManager)) {
                 CartButton(numberOfItems: cartManager.appleProducts.count)

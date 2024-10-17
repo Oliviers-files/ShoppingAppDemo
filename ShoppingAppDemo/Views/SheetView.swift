@@ -48,7 +48,7 @@ struct SheetView: View {
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
                 
                 HStack {
                     HStack (alignment: .top){
@@ -91,7 +91,7 @@ struct SheetView: View {
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
                 
                 HStack {
                     HStack (alignment: .top) {
@@ -138,7 +138,7 @@ struct SheetView: View {
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
                 .padding(.bottom)
                 
                 
@@ -151,11 +151,11 @@ struct SheetView: View {
                                 .foregroundStyle(.gray)
                             
                             Text("AED 4500.69")
-                                .font(.system(size: 30))
+                                .font(.system(size: 25))
                                 .fontWeight(.heavy)
                                 .foregroundStyle(.black)
                         }
-                        .frame(width: 200)
+                        .frame(width: 170)
                         .padding(.leading, 15)
                         
                         Spacer()
@@ -186,11 +186,11 @@ struct SheetView: View {
                     
                 }
                 .scaledToFit()
-                .frame(width: 400, height: 190, alignment: .topLeading)
+                .frame(width: 400, height: 180, alignment: .topLeading)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(10)
-                .shadow(radius: 2)
+                .shadow(radius: 1)
                 
             }
             //.frame(width: 190/*UIScreen.main.bounds.width * 0.9*/)

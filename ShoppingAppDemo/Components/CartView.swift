@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var cartManager: CartManager
-    
+   // @StateObject var cartManager = CartManager()
     
     var body: some View {
         ScrollView {

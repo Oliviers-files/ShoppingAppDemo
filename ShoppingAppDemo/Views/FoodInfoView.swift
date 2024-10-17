@@ -18,9 +18,15 @@ struct FoodInfoView: View {
         ScrollView (showsIndicators: false){
             LazyVGrid(columns: columns) {
                 VStack {
-                    Image(product.image)
-                        .resizable()
-                        .frame(width: 395, height: 410)
+                    
+                    VStack {
+                        Image(product.image)
+                            .resizable()
+                        
+                    }
+                    .frame(width: 285, height: 290)
+                    .cornerRadius(35)
+                    .shadow(radius: 2)
                     
                     VStack {
                         HStack {
@@ -37,7 +43,7 @@ struct FoodInfoView: View {
                             
                             Button {
                                 cartManager.addToCart(product: product)
-                                    //.environmentObject(cartManager)
+                                //.environmentObject(cartManager)
                             } label: {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(Color(red: 0.005, green: 0.442, blue: 0.889))
@@ -48,61 +54,34 @@ struct FoodInfoView: View {
                                             .foregroundStyle(Color.white)
                                     }
                             }
-                        }.padding(10)
-                        
-                    }.padding()
+                        }
+                        .padding(10)
+                        .frame(width: UIScreen.main.bounds.width * 0.90)
+                        .padding(10)
+                    }
+                    .padding()
                 }
             }
             
             Divider()
             
-            VStack(alignment: .leading) {
-                VStack {
-                    Text("Take a closer look.")
-                        .font(.system(size: 25))
-                        .bold()
-                }
-                .padding()
+            HStack {
+                Text("Add-ons:")
+                    .font(.system(size: 25))
+                    .bold()
                 
-                Divider()
+                Spacer()
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHGrid(rows: rows, spacing: 20) {
-                        Image("AMc2")
-                            .resizable()
-                            .frame(width: 245, height: 300)
-                            .cornerRadius(25)
-                            .shadow(radius: 3)
-                        
-                        Image("AMc3")
-                            .resizable()
-                            .frame(width: 245, height: 300)
-                            .cornerRadius(25)
-                            .shadow(radius: 3)
-                        
-                        Image("AMc5")
-                            .resizable()
-                            .frame(width: 265, height: 300)
-                            .cornerRadius(25)
-                            .shadow(radius: 3)
-                        
-                        Image("AMc6")
-                            .resizable()
-                            .frame(width: 245, height: 300)
-                            .cornerRadius(25)
-                            .shadow(radius: 3)
-                        
-                    }
-                    .padding()
-                    .padding(.top,-40)
-                }
+                Text("Max 4")
+                    .foregroundStyle(.blue)
+                    .bold()
             }
-        }
-        .navigationTitle("Buy \(product.name)")
-        .toolbar {
-            NavigationLink(destination: CartView().environmentObject(cartManager)) {
-                CartButton(numberOfItems: cartManager.appleProducts.count)
-                    
+            .padding()
+            
+            .toolbar {
+                NavigationLink(destination: CartView().environmentObject(cartManager)) {
+                    CartButton(numberOfItems: cartManager.appleProducts.count)
+                }
             }
         }
     }
