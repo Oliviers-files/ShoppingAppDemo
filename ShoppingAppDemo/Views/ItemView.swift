@@ -32,11 +32,11 @@ struct ItemView: View {
                     .padding(.horizontal)
                 }
                 //.frame(height: 690) // Fixed height for the grid
-                .navigationTitle("Apple Products")
-                .toolbar {
-                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
-                        CartButton(numberOfItems: cartManager.appleProducts.count)
-                    }
+            }
+            .navigationTitle("Apple Products")
+            .toolbar {
+                NavigationLink(destination: CartView().environmentObject(cartManager)) {
+                    CartButton(numberOfItems: cartManager.appleProducts.count)
                 }
             }
         }

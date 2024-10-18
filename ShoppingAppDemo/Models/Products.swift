@@ -19,6 +19,8 @@ struct AppleProduct: Identifiable {
     
 }
 
+
+
 struct MacMenu: Identifiable {
     var id = UUID()
     var name: String

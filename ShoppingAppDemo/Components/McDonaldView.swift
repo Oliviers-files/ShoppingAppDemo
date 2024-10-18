@@ -24,6 +24,8 @@ struct McDonaldView: View {
                     Image("mcHead")
                         .resizable()
                         .frame(width: UIScreen.main.bounds.width * 0.9999, height: 210)
+                    
+                    
                     Text("Mcdonald's Dubai")
                         .font(.system(size: 30))
                         .fontWeight(.heavy)
@@ -34,6 +36,7 @@ struct McDonaldView: View {
                         .font(.system(size: 15))
                         .padding(.leading, 15)
                 }
+                
                 
                 Divider()
                 
@@ -131,12 +134,13 @@ struct McDonaldView: View {
                     }
                     .padding(.horizontal)
                 }
-                .toolbar {
-                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
-                        CartButton(numberOfItems: cartManager.appleProducts.count)
-                    }
-                }
+//                .toolbar {
+//                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
+//                        CartButton(numberOfItems: cartManager.appleProducts.count)
+//                    }
+//                }
             }
+            .ignoresSafeArea()
         }
     }
 }

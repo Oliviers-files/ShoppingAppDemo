@@ -11,6 +11,7 @@ struct TabBarView: View {
     @State private var selectedTab: Int = 0
     @State private var showCreateThreadView = false
     
+    
     @EnvironmentObject var cartManager: CartManager
     var body: some View {
         
@@ -24,15 +25,15 @@ struct TabBarView: View {
                     .tag(0)
                 
                 CartView()
-                    .environmentObject(CartManager())
-                    .tabItem { Image(systemName: selectedTab == 1 ? "bag.fill" : "bag")
+                .tabItem { Image(systemName: selectedTab == 1 ? "bag.fill" : "bag")
                             .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
                     }
-                    .badge(3)
+                    .badge(cartManager.appleProducts.count)
                     .onAppear { selectedTab = 1}
                     .tag(1)
             }
         }
+        
     }
 }
 

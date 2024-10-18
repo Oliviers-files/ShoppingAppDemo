@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var columns = [GridItem(.adaptive(minimum: 310), spacing: 40)]
+    @StateObject var cartManager = CartManager()
     
     var body: some View {
         
@@ -188,6 +189,11 @@ struct ContentView: View {
             .padding()
         }
         .navigationTitle("Brands")
+        .toolbar {
+            NavigationLink(destination: CartView().environmentObject(cartManager)) {
+                CartButton(numberOfItems: cartManager.appleProducts.count)
+            }
+        }
         
         }
     }

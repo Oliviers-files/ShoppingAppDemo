@@ -66,23 +66,47 @@ struct FoodInfoView: View {
             Divider()
             
             HStack {
-                Text("Add-ons:")
-                    .font(.system(size: 25))
-                    .bold()
-                
-                Spacer()
-                
-                Text("Max 4")
-                    .foregroundStyle(.blue)
-                    .bold()
-            }
-            .padding()
-            
-            .toolbar {
-                NavigationLink(destination: CartView().environmentObject(cartManager)) {
-                    CartButton(numberOfItems: cartManager.appleProducts.count)
+                    Text("Add-ons:")
+                        .font(.system(size: 25))
+                        .bold()
+                    
+                    Spacer()
+                    
+                    Text("Max 4")
+                        .foregroundStyle(.blue)
+                        .bold()
+                    
                 }
+                .padding()
+                
+            VStack {
+                List{
+                    Text("dddf")
+                        .badge("\(Image(systemName: "checkmark.square.fill"))")
+                    
+                    Text("dddf")
+                        .badge("\(Image(systemName: "square"))")
+                    
+                    Text("dddf")
+                        .badge("\(Image(systemName: "square"))")
+                    
+                    Text("dddf")
+                        .badge("\(Image(systemName: "checkmark.square.fill"))")
+                    
+                    Text("dddf")
+                        .badge("\(Image(systemName: "square"))")
+                    
+                    Text("dddf")
+                        .badge("\(Image(systemName: "square"))")
+                    
+                    Text("dddf")
+                        .badge("\(Image(systemName: "square"))")
+                }
+                //.frame(width: 400,height: 250)
+                //.padding()
             }
+            .frame(width: 400,height: 350)
+            
         }
     }
 }
