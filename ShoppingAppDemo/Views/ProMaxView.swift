@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProMaxView: View {
     var product: AppleProduct
-    @StateObject var cartManager = CartManager()
+    @EnvironmentObject var cartManager: CartManager
     
     var rows = [GridItem(.fixed(410), spacing: 10)]
     let columns = [ GridItem(.flexible(minimum: 112))]
@@ -21,7 +21,7 @@ struct ProMaxView: View {
                 VStack {
                     Image(product.image)
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width * 0.95, height: 390)
+                        .frame(width: UIScreen.main.bounds.width * 0.84, height: 295)
                     
                     VStack {
                         HStack {
@@ -38,7 +38,7 @@ struct ProMaxView: View {
                             
                             Button {
                                 cartManager.addToCart(product: product)
-                                    //.environmentObject(cartManager)
+                                    
                             } label: {
                                 RoundedRectangle(cornerRadius: 20)
                                     .fill(Color(red: 0.005, green: 0.442, blue: 0.889))
@@ -71,25 +71,25 @@ struct ProMaxView: View {
                     LazyHGrid(rows: rows, spacing: 20) {
                         Image(product.look)
                             .resizable()
-                            .frame(width: 245, height: 300)
+                            .frame(width: 200, height: 250)
                             .cornerRadius(25)
                             .shadow(radius: 3)
                         
                         Image(product.look2)
                             .resizable()
-                            .frame(width: 245, height: 300)
+                            .frame(width: 200, height: 250)
                             .cornerRadius(25)
                             .shadow(radius: 3)
                         
                         Image(product.look3)
                             .resizable()
-                            .frame(width: 265, height: 300)
+                            .frame(width: 240, height: 250)
                             .cornerRadius(25)
                             .shadow(radius: 3)
                         
                         Image(product.look4)
                             .resizable()
-                            .frame(width: 245, height: 300)
+                            .frame(width: 200, height: 250)
                             .cornerRadius(25)
                             .shadow(radius: 3)
                         
@@ -97,13 +97,6 @@ struct ProMaxView: View {
                     .padding()
                     .padding(.top,-40)
                 }
-            }
-        }
-        //.navigationTitle("Buy \(product.name)")
-        .toolbar {
-            NavigationLink(destination: CartView().environmentObject(cartManager)) {
-                CartButton(numberOfItems: cartManager.appleProducts.count)
-                    
             }
         }
     }

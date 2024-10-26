@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct CartView: View {
-    @EnvironmentObject var cartManager: CartManager
-   // @StateObject var cartManager = CartManager()
+   @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
         ScrollView {
@@ -44,17 +43,24 @@ struct CartView: View {
             ApplePaymentButton(action: {}) */
                 
                 PaymentButton()
-                    
-                
             } else {
-                Text("Your cart is empty.")
+                VStack {
+                    Image(systemName: "basket")
+                        .resizable()
+                        .frame(width: 250,height: 250)
+                        .padding()
+                    
+                    Text("Cart is empty")
+                        .font(.system(size: 40))
+                }
+                .padding(.top, 170)
             }
         }
-        .navigationTitle("My Cart")
+        .navigationTitle("my Cart")
     }
 }
 
 #Preview {
-    CartView()
-        .environmentObject(CartManager())
+        CartView()
+            .environmentObject(CartManager())
 }

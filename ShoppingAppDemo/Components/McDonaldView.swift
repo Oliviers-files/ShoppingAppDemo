@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct McDonaldView: View {
-    var rows = [GridItem(.flexible(minimum: 410), spacing: 10)]
     @StateObject var cartManager = CartManager()
+    
+    var rows = [GridItem(.flexible(minimum: 410), spacing: 10)]
     
     let columns = [
         GridItem(.flexible()),
@@ -126,19 +127,51 @@ struct McDonaldView: View {
                 
                 Divider()
                 
+                HStack {
+                    
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("See More")
+                            .fontWeight(.bold)
+                            .font(.system(size: 25))
+                            .foregroundStyle(.black)
+                        
+                        Image(systemName: "chevron.right")
+                            .resizable()
+                            .foregroundStyle(.black)
+                            .frame(width: 10, height: 20)
+                            
+                    }
+                }
+                .frame(width: 350, alignment: .leading)
+                .padding()
+                .padding(.bottom,-45)
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: rows, spacing: 20) {
+                        
                         ForEach(menuItem, id: \.id) { Product in
                             FoodProductCard(product: Product)
+                            
                         }
+                        
                     }
+                    //.navigationTitle("See More")
                     .padding(.horizontal)
                 }
-//                .toolbar {
-//                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
-//                        CartButton(numberOfItems: cartManager.appleProducts.count)
-//                    }
-//                }
+                .toolbar {
+                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
+                        Circle()
+                            .frame(width: 50, height: 50)
+                            .foregroundStyle(.white)
+                            .shadow(radius: 5)
+                            .overlay {
+                                CartButton(numberOfItems: cartManager.macProducts.count)
+                            }
+                    }
+                }
             }
             .ignoresSafeArea()
         }

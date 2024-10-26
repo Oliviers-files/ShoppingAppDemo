@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct FoodProductCard: View {
-    var product: MacMenu
     @EnvironmentObject var cartManager: CartManager
+    var product: MacMenu
     
     var body: some View {
         

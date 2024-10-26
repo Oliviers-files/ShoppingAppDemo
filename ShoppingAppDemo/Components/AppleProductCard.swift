@@ -17,7 +17,7 @@ struct AppleProductCard: View {
             VStack(spacing: 7) {
                 Image(product.image)
                     .resizable()
-                    .frame(width: 240, height: 210)
+                    .frame(width: 230, height: 210)
                     .scaledToFill()
                 
                 Spacer(minLength: 1)
@@ -77,13 +77,12 @@ struct AppleProductCard: View {
                     }
                 }
                 .frame(width: 260)
-                //.padding(1)
             }
             .padding()
             
             }
             .scaledToFit()
-            .frame(width: 250, height: 330)
+            .frame(width: 250, height: 335)
             .padding()
             .background(Color.white)
             .cornerRadius(35)

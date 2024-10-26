@@ -50,7 +50,7 @@ struct CartProductRow: View {
                 }
                 .padding(.trailing, 23)
             }
-            .frame(width: UIScreen.main.bounds.width * 0.95/*380*/, height: 120)
+            .frame(width: UIScreen.main.bounds.width * 0.91/*380*/, height: 110)
             .background(Color.white)
             .cornerRadius(35)
             .shadow(radius: 3)

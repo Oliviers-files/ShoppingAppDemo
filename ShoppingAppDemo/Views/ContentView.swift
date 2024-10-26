@@ -8,198 +8,239 @@
 import SwiftUI
 
 struct ContentView: View {
-    var columns = [GridItem(.adaptive(minimum: 310), spacing: 40)]
     @StateObject var cartManager = CartManager()
+    @State private var path = [String]()
+    
+    var rows = [GridItem(.flexible(minimum: 410), spacing: 30)]
+    
+    let columns = [
+        GridItem(.flexible()),
+    ]
     
     var body: some View {
-        
-    NavigationView {
-        ScrollView {
-            LazyVGrid(columns: columns , spacing: 1) {
+        NavigationStack(path: $path){
+            
+           ScrollView(.horizontal, showsIndicators: false) {
+               LazyHGrid(rows: columns , spacing: 1) {
+                   HStack {
+                       VStack(spacing: 20) {
+                           Button {
+                               
+                           } label: {
+                               NavigationLink(destination: McDonaldView()) {
+                                   Image("mcdonalds")
+                                       .resizable()
+                                       .frame(width: 230, height: 230)
+                                       .scaledToFit()
+                                       .cornerRadius(10)
+                               }
+                           }
+                           
+                           
+                           VStack (alignment: .leading) {
+                               VStack {
+                                   Text("McDonald's")
+                                       .font(.system(size: 30))
+                                       .bold()
+                               }
+                               .frame(alignment: .leading)
+                               
+                               VStack{
+                                   Text("'' I'm lovin' it ''")
+                                   
+                                       .foregroundStyle(Color.gray)
+                                   
+                               }
+                               HStack {
+                                   Text("")
+                                       .font(.subheadline)
+                                   
+                                   
+                                   Spacer()
+                                   
+                                   Button {
+                                       print("see/Buy product")
+                                   } label: {
+                                       RoundedRectangle(cornerRadius: 40)
+                                           .fill(Color.black)
+                                           .frame(width: 80, height: 50)
+                                           .overlay {
+                                               NavigationLink {
+                                                   McDonaldView()
+                                               } label: {
+                                                   Text("Shop")
+                                                       .font(.title3)
+                                                       .bold()
+                                                       .foregroundStyle(.white)
+                                               }
+                                           }
+                                   }
+                               }
+                               .padding(.bottom, 1)
+                               
+                           }
+                           .frame(width: 280)
+                           .scaledToFit()
+                           .cornerRadius(10)
+                       }
+                       .frame(width: 300, height: 400)
+                       .padding()
+                       .background(Color.white)
+                       .cornerRadius(35)
+                       .shadow(radius: 5)
+                   }
+                   .padding()
+                   
+                   
+                   ZStack(alignment: .topTrailing) {
+                       VStack(spacing: 10) {
+                           Image(systemName: "apple.logo")
+                               .resizable()
+                               .frame(width: 195 ,height: 240)
+                               .scaledToFit()
+                           
+                           VStack (alignment: .leading) {
+                               VStack {
+                                   Text("Apple Store")
+                                       .font(.system(size: 30))
+                                       .bold()
+                               }
+                               .frame(alignment: .leading)
+                               
+                               VStack{
+                                   Text("Think different")
+                                       .font(.caption)
+                                       .foregroundStyle(Color.gray)
+                                   
+                               }
+                               HStack {
+                                   Text("")
+                                       .font(.subheadline)
+                                   
+                                   
+                                   Spacer()
+                                   
+                                   Button {
+                                       print("see/Buy product")
+                                   } label: {
+                                       RoundedRectangle(cornerRadius: 40)
+                                           .fill(Color.black)
+                                           .frame(width: 80, height: 50)
+                                           .overlay {
+                                               NavigationLink {
+                                                   ItemView()
+                                               } label: {
+                                                   Text("Shop")
+                                                       .font(.title3)
+                                                       .bold()
+                                                       .foregroundStyle(.white)
+                                               }
+                                           }
+                                   }
+                                   .padding(.bottom, 1)
+                               }
+                           }
+                       }
+                       .frame(width: 300, height: 400)
+                       .padding()
+                       .background(Color.white)
+                       .cornerRadius(35)
+                       .shadow(radius: 5)
+                   }.padding()
+                   
+                   
+                   VStack(spacing: 10) {
+                       Image("f21")
+                           .resizable()
+                           .frame(width: 280)
+                           .scaledToFit()
+                           .cornerRadius(10)
+                       
+                       VStack (alignment: .leading) {
+                           VStack {
+                               Text("Forever 21")
+                                   .font(.system(size: 30))
+                                   .bold()
+                           }
+                           .frame(alignment: .leading)
+                           
+                           VStack{
+                               Text("Forever on-trend, forever you.")
+                                   .font(.caption)
+                                   .foregroundStyle(Color.gray)
+                               
+                           }
+                           HStack {
+                               Text("")
+                                   .font(.subheadline)
+                               
+                               
+                               Spacer()
+                               
+                               Button {
+                                   print("see/Buy product")
+                               } label: {
+                                   RoundedRectangle(cornerRadius: 40)
+                                       .fill(Color.black)
+                                       .frame(width: 80, height: 50)
+                                       .overlay {
+                                           Text("Shop")
+                                               .font(.title3)
+                                               .bold()
+                                               .foregroundStyle(.white)
+                                       }
+                               }
+                           }
+                           .padding(.bottom, 1)
+                           
+                       }
+                   }
+                   .frame(width: 300, height: 400)
+                   .padding()
+                   .background(Color.white)
+                   .cornerRadius(35)
+                   .shadow(radius: 5)
+                   //                    }
+                   //                    .padding()
+               }
+                }
+                .navigationBarBackButtonHidden()
+                .navigationTitle("Brands")
                 
-                VStack(spacing: 20) {
-                    Image("mcdonalds")
-                        .resizable()
-                        .frame(width: 280)
-                        .scaledToFit()
-                        .cornerRadius(10)
+                HStack{
                     
-                    
-                    VStack (alignment: .leading) {
-                        VStack {
-                            Text("McDonald's")
-                                .font(.system(size: 30))
-                                .bold()
-                        }
-                        .frame(alignment: .leading)
+                    HStack {
+                        Image(systemName: "house")
+                            .resizable()
+                            .frame(width: 30, height: 25)
+                            .padding()
                         
-                        VStack{
-                            Text("Check out the ultimate over-ear listening experience, now in five fresh colors.")
-                                .font(.caption)
-                                .foregroundStyle(Color.gray)
-                            
-                        }
-                        HStack {
-                            Text("")
-                                .font(.subheadline)
-                            
-                            
-                            Spacer()
-                            
-                            Button {
-                                print("see/Buy product")
-                            } label: {
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(Color.black)
-                                    .frame(width: 80, height: 50)
-                                    .overlay {
-                                        NavigationLink {
-                                            McDonaldView()
-                                        } label: {
-                                            Text("Shop")
-                                                .font(.title3)
-                                                .bold()
-                                                .foregroundStyle(.white)
-                                        }
-                                    }
-                            }
-                        }
-                        .padding(.bottom, 1)
+                        Spacer()
                         
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                        
+                        Spacer()
+                        
+//                        NavigationLink{  CartView(cartManager: cartManager.appleProducts.count)
+//                                .environmentObject(cartManager)
+//                        }label: {
+//                            CartButton(numberOfItems: cartManager.appleProducts.count)
+//                            
+//                        }
                     }
+                    .frame(width: 330, height: 25)
                 }
-                .frame(width: 300, height: 400)
                 .padding()
-                .background(Color.white)
-                .cornerRadius(35)
+                .background(.ultraThinMaterial)
+                .cornerRadius(50)
                 .shadow(radius: 5)
-            }
-            .padding()
-            
-            
-            ZStack(alignment: .topTrailing) {
-                VStack(spacing: 10) {
-                    Image(systemName: "apple.logo")
-                        .resizable()
-                        .frame(width: 195 ,height: 240)
-                        .scaledToFit()
-                    
-                    VStack (alignment: .leading) {
-                        VStack {
-                            Text("Apple Store")
-                                .font(.system(size: 30))
-                                .bold()
-                        }
-                        .frame(alignment: .leading)
-                        
-                        VStack{
-                            Text("Check out the ultimate over-ear listening experience, now in five fresh colors.")
-                                .font(.caption)
-                                .foregroundStyle(Color.gray)
-                            
-                        }
-                        HStack {
-                            Text("")
-                                .font(.subheadline)
-                            
-                            
-                            Spacer()
-                            
-                            Button {
-                                print("see/Buy product")
-                            } label: {
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(Color.black)
-                                    .frame(width: 80, height: 50)
-                                    .overlay {
-                                        NavigationLink {
-                                            ItemView()
-                                        } label: {
-                                            Text("Shop")
-                                                .font(.title3)
-                                                .bold()
-                                                .foregroundStyle(.white)
-                                        }
-                                    }
-                            }
-                            .padding(.bottom, 1)
-                        }
-                    }
-                }
-                .frame(width: 300, height: 400)
-                .padding()
-                .background(Color.white)
-                .cornerRadius(35)
-                .shadow(radius: 5)
-            }.padding()
-            
-            ZStack(alignment: .topTrailing) {
-                VStack(spacing: 10) {
-                    Image("f21")
-                        .resizable()
-                        .frame(width: 280)
-                        .scaledToFit()
-                        .cornerRadius(10)
-                    
-                    VStack (alignment: .leading) {
-                        VStack {
-                            Text("Forever 21")
-                                .font(.system(size: 30))
-                                .bold()
-                        }
-                        .frame(alignment: .leading)
-                        
-                        VStack{
-                            Text("Check out the ultimate over-ear listening experience, now in five fresh colors.")
-                                .font(.caption)
-                                .foregroundStyle(Color.gray)
-                            
-                        }
-                        HStack {
-                            Text("")
-                                .font(.subheadline)
-                            
-                            
-                            Spacer()
-                            
-                            Button {
-                                print("see/Buy product")
-                            } label: {
-                                RoundedRectangle(cornerRadius: 40)
-                                    .fill(Color.black)
-                                    .frame(width: 80, height: 50)
-                                    .overlay {
-                                        Text("Shop")
-                                            .font(.title3)
-                                            .bold()
-                                            .foregroundStyle(.white)
-                                    }
-                            }
-                        }
-                        .padding(.bottom, 1)
-                        
-                    }
-                }
-                .frame(width: 300, height: 400)
-                .padding()
-                .background(Color.white)
-                .cornerRadius(35)
-                .shadow(radius: 5)
-            }
-            .padding()
-        }
-        .navigationTitle("Brands")
-        .toolbar {
-            NavigationLink(destination: CartView().environmentObject(cartManager)) {
-                CartButton(numberOfItems: cartManager.appleProducts.count)
-            }
-        }
-        
+                .frame(maxHeight: .infinity, alignment: .bottom)
         }
     }
 }
-                    
+
 #Preview {
-   
     ContentView()
 }
