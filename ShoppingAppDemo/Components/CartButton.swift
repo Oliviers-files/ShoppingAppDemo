@@ -20,7 +20,7 @@ struct CartButton: View {
                     Image(systemName: "bag")
                         .resizable()
                         .foregroundStyle(Color.black)
-                        .frame(width: 27, height: 27)
+                        .frame(width: 22, height: 22)
                 }
                 .frame(width: 56,height: 45)
                 
@@ -29,19 +29,20 @@ struct CartButton: View {
                     if numberOfItems > 0 {
                         Circle()
                             .fill(Color.red)
-                            .frame(width: 20, height: 25)
+                            .frame(width: 20, height: 20)
                         
                         Text("\(numberOfItems)")
-                            .font(.system(size:10))
+                            .font(.system(size:13))
                             .bold()
                             .foregroundStyle(Color.white)
                     }
                 }
-                .frame(alignment: .trailing)
+                //.frame(alignment: .trailing)
             }
-            .frame(alignment: .trailing)
+            .frame(height: 765, alignment: .bottom)
+            //.ignoresSafeArea()
         }
-        .frame(maxHeight: .infinity, alignment: .topTrailing)
+        
     }
 }
 

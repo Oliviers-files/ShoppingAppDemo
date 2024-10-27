@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ItemView: View {
-    @StateObject var cartManager = CartManager()
+    @EnvironmentObject var cartManager: CartManager
+   // @StateObject var cartManager = CartManager()
     @State private var path = [String]()
     
     var rows = [GridItem(.flexible(minimum: 410), spacing: 10)]
@@ -156,40 +157,45 @@ struct ItemView: View {
                 }
                 .navigationBarBackButtonHidden()
                 
-                HStack {
-                    Image(systemName: "house")
-                        .resizable()
-                        .frame(width: 30, height: 25)
-                        .padding()
-                    
-                    Spacer()
-                    
-                    Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                    
-                    Spacer()
-                    
-                    NavigationLink {
-                        CartView()
-                            .environmentObject(cartManager)
-                    }label: {
-                        CartButton(numberOfItems: cartManager.appleProducts.count)
-                        
-                    }
-                    
-                }
-                .frame(width: 330, height: 25)
-                .padding()
-                .background(.ultraThinMaterial)
-                .cornerRadius(50)
-                .shadow(radius: 5)
-                .frame(maxHeight: .infinity, alignment: .bottom)
+               
+                
+                
+//                HStack {
+//                    Image(systemName: "house")
+//                        .resizable()
+//                        .frame(width: 30, height: 25)
+//                        .padding()
+//                    
+//                    Spacer()
+//                    
+//                    Image(systemName: "magnifyingglass")
+//                        .resizable()
+//                        .frame(width: 25, height: 25)
+//                    
+//                    Spacer()
+//                    
+//                    NavigationLink {
+//                        CartView()
+//                            .environmentObject(cartManager)
+//                    }label: {
+//                        CartButton(numberOfItems: cartManager.appleProducts.count)
+//                        
+//                    }
+//                    
+//                }
+//                .frame(width: 330, height: 25)
+//                .padding()
+//                .background(.ultraThinMaterial)
+//                .cornerRadius(50)
+//                .shadow(radius: 5)
+//                .frame(maxHeight: .infinity, alignment: .bottom)
             }
+            
         }
     }
 }
 
 #Preview {
     ItemView()
+        .environmentObject(CartManager())
 }

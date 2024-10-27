@@ -11,7 +11,8 @@ import SwiftUI
 struct ShoppingAppDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ItemView()
+            CustomTabBar()
+                .environmentObject(CartManager())
         }
     }
 }
