@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ItemView: View {
     @EnvironmentObject var cartManager: CartManager
-   // @StateObject var cartManager = CartManager()
+    // @StateObject var cartManager = CartManager()
     @State private var path = [String]()
     
-    var rows = [GridItem(.flexible(minimum: 410), spacing: 10)]
+    var rows = [GridItem(.flexible(minimum: 455), spacing: 10)]
     
     let columns = [
         GridItem(.flexible()),
@@ -27,10 +27,10 @@ struct ItemView: View {
                 
                 ScrollView {
                     VStack {
-                     Text("Brands")
-                                .fontWeight(.bold)
-                                .font(.system(size: 35))
-                                .foregroundStyle(.black)
+                        Text("Brands")
+                            .fontWeight(.bold)
+                            .font(.system(size: 35))
+                            .foregroundStyle(.black)
                     }
                     .frame(width: 350, alignment: .leading)
                     .padding()
@@ -103,19 +103,22 @@ struct ItemView: View {
                     }
                     .frame(width: 350, alignment: .leading)
                     .padding()
-                    //.padding()
+                    
+                    
+                    // Apple Options:
+                        AppleOptionView(product: productList[0])
                     
                     // First LazyHGrid with a fixed height for the ScrollView
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: rows, spacing: 20) {
-                            
-                            ForEach(productList, id: \.id) { Product in
-                                AppleProductCard(product: Product)
-                                    .environmentObject(cartManager)
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//                        LazyHGrid(rows: rows, spacing: 20) {
+//                            
+//                            ForEach(productList, id: \.id) { Product in
+//                                AppleProductCard(product: Product)
+//                                    .environmentObject(cartManager)
+//                            }
+//                        }
+//                        .padding(.horizontal)
+//                    }
                     
                     Spacer()
                     HStack {
@@ -150,48 +153,13 @@ struct ItemView: View {
                             }
                             
                         }
-                        //.navigationTitle("See More")
                         .padding(.horizontal)
                     }
                     
                 }
                 .navigationBarBackButtonHidden()
-                
-               
-                
-                
-//                HStack {
-//                    Image(systemName: "house")
-//                        .resizable()
-//                        .frame(width: 30, height: 25)
-//                        .padding()
-//                    
-//                    Spacer()
-//                    
-//                    Image(systemName: "magnifyingglass")
-//                        .resizable()
-//                        .frame(width: 25, height: 25)
-//                    
-//                    Spacer()
-//                    
-//                    NavigationLink {
-//                        CartView()
-//                            .environmentObject(cartManager)
-//                    }label: {
-//                        CartButton(numberOfItems: cartManager.appleProducts.count)
-//                        
-//                    }
-//                    
-//                }
-//                .frame(width: 330, height: 25)
-//                .padding()
-//                .background(.ultraThinMaterial)
-//                .cornerRadius(50)
-//                .shadow(radius: 5)
-//                .frame(maxHeight: .infinity, alignment: .bottom)
             }
-            
-        }
+         }
     }
 }
 

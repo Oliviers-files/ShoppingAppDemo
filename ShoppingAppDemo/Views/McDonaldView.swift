@@ -9,7 +9,6 @@ import SwiftUI
 
 struct McDonaldView: View {
     @StateObject var cartManager = CartManager()
-    
     var rows = [GridItem(.flexible(minimum: 410), spacing: 10)]
     
     let columns = [
@@ -161,17 +160,17 @@ struct McDonaldView: View {
                     //.navigationTitle("See More")
                     .padding(.horizontal)
                 }
-                .toolbar {
-                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
-                        Circle()
-                            .frame(width: 50, height: 50)
-                            .foregroundStyle(.white)
-                            .shadow(radius: 5)
-                            .overlay {
-                                CartButton(numberOfItems: cartManager.macProducts.count)
-                            }
-                    }
-                }
+//                .toolbar {
+//                    NavigationLink(destination: CartView().environmentObject(cartManager)) {
+//                        Circle()
+//                            .frame(width: 50, height: 50)
+//                            .foregroundStyle(.white)
+//                            .shadow(radius: 5)
+//                            .overlay {
+//                                CartButton(numberOfItems: cartManager.macProducts.count)
+//                            }
+//                    }
+//                }
             }
             .ignoresSafeArea()
         }
