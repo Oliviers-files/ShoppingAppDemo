@@ -19,9 +19,14 @@ struct AppleProduct: Identifiable {
     
 }
 
-
-
 struct MacMenu: Identifiable {
+    var id = UUID()
+    var name: String
+    var image: String
+    var price: Int
+}
+
+struct F21Sweater: Identifiable {
     var id = UUID()
     var name: String
     var image: String
@@ -52,3 +57,10 @@ var productList = [AppleProduct(name: "Airpods Max", image: "AirpodsMax", price:
                                       AppleProduct(name: "Apple Watch Ultra", image: "watchHermes-ultra", price: 2699, look: "ultra2", look2: "ultra3", look3: "ultra4", look4: "ultra5"),
                                       AppleProduct(name: "Apple Watch S10", image: "watch40-s10B", price: 1249, look: "", look2: "", look3: "", look4: "")
                                      ]
+
+var sweaterItem = [ F21Sweater(name: "Purple Sweater", image: "s1", price: 43),
+                    F21Sweater(name:  "Red Sweater", image: "s2", price: 34),
+                    F21Sweater(name: "Brown Sweater", image: "s3", price: 54),
+                    F21Sweater(name: "Green Sweater", image: "s4", price: 23),
+                    F21Sweater(name: "Blue Sweater", image: "s5", price: 45)
+                   ]

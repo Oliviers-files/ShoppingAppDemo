@@ -23,7 +23,7 @@ struct ItemView: View {
         
         NavigationStack(path: $path) {
             
-            ZStack {
+           // ZStack {
                 
                 ScrollView {
                     VStack {
@@ -34,97 +34,75 @@ struct ItemView: View {
                     }
                     .frame(width: 350, alignment: .leading)
                     .padding()
-                    //.padding(.bottom,-45)
                     
                     HStack {
-                        Button {
-                            
-                        } label: {
-                            NavigationLink(destination: McDonaldView()) {
-                                Image("mcdonalds")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width:120, height: 120)
-                                    .cornerRadius(10)
-                            }
+                        
+                        NavigationLink(destination: McDonaldView()) {
+                            Image("mcdonalds")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width:110, height: 110)
+                                .cornerRadius(10)
                         }
                         
-                        Button {
-                            
-                        } label: {
-                            NavigationLink(destination: McDonaldView()) {
-                                VStack{
-                                    Image(systemName: "apple.logo")
-                                        .resizable()
-                                        .foregroundStyle(.black)
-                                        .frame(width: 60, height: 70)
-                                        .scaledToFit()
-                                        .cornerRadius(10)
-                                }
-                                .frame(width: 80, height:85)
-                                .padding()
-                                .background(Color.white)
-                                .cornerRadius(8)
-                                .shadow(radius: 2)
+                        
+                        NavigationLink(destination: AppleMainView()) {
+                            VStack{
+                                Image(systemName: "apple.logo")
+                                    .resizable()
+                                    .foregroundStyle(.black)
+                                    .frame(width: 60, height: 70)
                             }
+                            .frame(width: 75, height:75)
+                            .padding()
+                            .background(Color.white)
+                            .cornerRadius(8)
+                            .shadow(radius: 2)
                         }
                         
-                        Button {
-                            
-                        } label: {
-                            NavigationLink(destination: McDonaldView()) {
-                                Image("f21")
-                                    .resizable()
-                                    .frame(width: 120, height: 120)
-                                    .scaledToFit()
-                                    .cornerRadius(10)
-                            }
+                        NavigationLink(destination: F21View()) {
+                            Image("f21")
+                                .resizable()
+                                .frame(width: 110, height: 110)
+                                .scaledToFit()
+                                .cornerRadius(10)
                         }
                     }
                     
+                   
+                    
+        NavigationLink(destination: AppleMainView()) {
                     HStack {
-                        
                         Text("Apple")
                             .fontWeight(.bold)
-                            .font(.system(size: 35))
+                            .font(.system(size: 25))
                             .foregroundStyle(.black)
                         
                         Spacer()
                         
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "chevron.right")
+                         Image(systemName: "chevron.right")
                                 .resizable()
                                 .foregroundStyle(.black)
                                 .frame(width: 10, height: 20)
                             
-                        }
                     }
                     .frame(width: 350, alignment: .leading)
-                    .padding()
                     
-                    
+                }
+        .padding()
+        .padding(.bottom, -20)
                     // Apple Options:
+                    VStack {
                         AppleOptionView(product: productList[0])
-                    
-                    // First LazyHGrid with a fixed height for the ScrollView
-//                    ScrollView(.horizontal, showsIndicators: false) {
-//                        LazyHGrid(rows: rows, spacing: 20) {
-//                            
-//                            ForEach(productList, id: \.id) { Product in
-//                                AppleProductCard(product: Product)
-//                                    .environmentObject(cartManager)
-//                            }
-//                        }
-//                        .padding(.horizontal)
-//                    }
+                    }
+                    .frame(height: 530)
                     
                     Spacer()
+                    
                     HStack {
                         Text("McDonalds")
                             .fontWeight(.bold)
-                            .font(.system(size: 35))
+                            .font(.system(size: 25))
                             .foregroundStyle(.black)
                         
                         Spacer()
@@ -142,7 +120,7 @@ struct ItemView: View {
                     }
                     .frame(width: 350, alignment: .leading)
                     .padding()
-                    .padding(.bottom,-45)
+                    .padding(.bottom, -60)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: rows, spacing: 20) {
@@ -158,7 +136,7 @@ struct ItemView: View {
                     
                 }
                 .navigationBarBackButtonHidden()
-            }
+            
          }
     }
 }

@@ -43,6 +43,7 @@ struct CustomTabBar: View {
                     .onAppear { selectedTab = 2}
                     .tag(2)
             }
+            
         }
     }
 }

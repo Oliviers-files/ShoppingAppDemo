@@ -9,97 +9,100 @@ import SwiftUI
 
 struct AppleOptionView: View {
     var product: AppleProduct
-    var rows = [GridItem(.flexible(minimum: 450), spacing: 10)]
+    var rows = [GridItem(.adaptive(minimum: 430), spacing: 10)]
+    
     var body: some View {
-      
+        
         
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, spacing: 20) {
                 
                 NavigationLink(destination: ProMaxView(product: productList[1])) {
-                VStack(alignment: .leading) {
-                    
-                    VStack (alignment: .leading, spacing: 5){
-                        Text("FREE ENGRAVING")
-                            .font(.system(size: 11))
-                            .foregroundStyle(.secondary)
-                            .bold()
-                            .foregroundStyle(.white)
+                    VStack(alignment: .leading) {
                         
-                        Text("Airpods Pro 2")
-                            .font(.largeTitle)
-                            .bold()
-                            .foregroundStyle(.white)
-                        
-                        Text("Learn about the world's first")
-                            .font(.system(size: 13))
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                        
-                            .foregroundStyle(.white)
-                        
-                        Text("all-in-one hearing health")
-                            .font(.system(size: 13))
-                            .font(.subheadline)
-                        
-                            .fontWeight(.semibold)
-                        
-                            .foregroundStyle(.white)
-                    }
-                    .frame(width: 300, height: 90, alignment: .leading)
-                    
-                    VStack{
-                        
-                        Image("blackpc")
-                            .resizable()
-                            .frame(width: 230, height: 270)
-                            .foregroundStyle(.white)
-                            .padding(.horizontal)
-                        
-                    }
-                    .padding()
-                    Spacer()
-                    
-                    HStack {
-                        
-                        VStack(alignment: .leading){
-                            Text("Free Memoji engraving")
-                                .font(.system(size: 13))
+                        VStack (alignment: .leading, spacing: 5){
+                            Text("FREE ENGRAVING")
+                                .font(.system(size: 11))
+                                .foregroundStyle(.secondary)
                                 .bold()
                                 .foregroundStyle(.white)
                             
-                            Text("available exclusively in the")
-                                .font(.system(size: 13))
+                            Text("Airpods Pro 2")
+                                .font(.largeTitle)
                                 .bold()
                                 .foregroundStyle(.white)
                             
-                            Text("Apple Store app")
+                            Text("Learn about the world's first")
                                 .font(.system(size: 13))
-                                .bold()
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            
+                                .foregroundStyle(.white)
+                            
+                            Text("all-in-one hearing health")
+                                .font(.system(size: 13))
+                                .font(.subheadline)
+                            
+                                .fontWeight(.semibold)
+                            
                                 .foregroundStyle(.white)
                         }
+                        .frame(width: 300, height: 90, alignment: .leading)
+                        
+                        VStack{
+                            
+                            Image("blackpc")
+                                .resizable()
+                                .frame(width: 230, height: 270)
+                                .foregroundStyle(.white)
+                                .padding(.horizontal)
+                            
+                        }
+                        .padding()
                         Spacer()
                         
-                        RoundedRectangle(cornerRadius: 40)
-                            .fill(.ultraThickMaterial)
-                            .frame(width: 90, height: 35)
-                            .shadow(radius: 1)
-                            .overlay {
-                                Text("AED 949")
-                                    .font(.system(size: 15))
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(.blue)
+                        HStack {
+                            
+                            VStack(alignment: .leading){
+                                Text("Free Memoji engraving")
+                                    .font(.system(size: 13))
+                                    .bold()
+                                    .foregroundStyle(.white)
+                                
+                                Text("available exclusively in the")
+                                    .font(.system(size: 13))
+                                    .bold()
+                                    .foregroundStyle(.white)
+                                
+                                Text("Apple Store app")
+                                    .font(.system(size: 13))
+                                    .bold()
+                                    .foregroundStyle(.white)
                             }
+                            Spacer()
+                            
+                            RoundedRectangle(cornerRadius: 40)
+                                .fill(.ultraThickMaterial)
+                                .frame(width: 90, height: 35)
+                                .shadow(radius: 1)
+                                .overlay {
+                                    Text("AED 949")
+                                        .font(.system(size: 15))
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(.blue)
+                                }
+                        }
                     }
+                    .scaledToFit()
+                    .frame(width: 300, height: 470)
+                    .padding()
+                    .background(Color.black)
+                    .cornerRadius(15)
+                    .shadow(color: Color.black.opacity(1), radius: 5)
+                    
                 }
-                .scaledToFit()
-                .frame(width: 300, height: 470)
-                .padding()
-                .background(Color.black)
-                .cornerRadius(15)
-                .shadow(color: Color.black.opacity(2), radius: 10)
+                .padding(.leading)
                 
-        }.padding()
                 
                 NavigationLink(destination: ProMaxView(product: productList[0])) {
                     ZStack {
@@ -247,7 +250,6 @@ struct AppleOptionView: View {
             }
             
         }
-        
     }
 }
 

@@ -1,18 +1,17 @@
 //
-//  CartProductRow.swift
+//  FoodCartRow.swift
 //  ShoppingAppDemo
 //
-//  Created by Stellone Olivier on 07/10/2024.
+//  Created by Stellone Olivier on 02/11/2024.
 //
 
 import SwiftUI
 
-struct CartProductRow: View {
+struct FoodCartRow: View {
     @EnvironmentObject var cartManager: CartManager
-    var product: AppleProduct
+    var product: MacMenu
     
     var body: some View {
-        
         ZStack {
             HStack(spacing: 20) {
                 Image(product.image)
@@ -50,16 +49,14 @@ struct CartProductRow: View {
                 }
                 .padding(.trailing, 23)
             }
-            .frame(width: UIScreen.main.bounds.width * 0.92, height: 100)
+            .frame(width: UIScreen.main.bounds.width * 0.95, height: 100)
             .background(Color.white)
-            .cornerRadius(15)
-            .shadow(radius: 3)
+            
         }
-        
+        Divider()
     }
 }
 
 #Preview {
-    CartProductRow(product: productList[0])
-        .environmentObject(CartManager())
+    FoodCartRow(product: menuItem[0])
 }

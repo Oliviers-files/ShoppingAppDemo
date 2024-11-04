@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct CartView: View {
-   @EnvironmentObject var cartManager: CartManager
+    @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
-        ScrollView {
-            if cartManager.appleProducts.count > 0 {
+        ZStack {
+            ScrollView {
+                if cartManager.appleProducts.count > 0 {
+                    Text("Apple")
+                        .fontWeight(.bold)
+                        .font(.system(size: 15))
+                        .foregroundStyle(.gray)
+                    
                     ForEach(cartManager.appleProducts, id: \.id) { product in
                         CartProductRow(product: product)
                     }
@@ -43,7 +49,85 @@ struct CartView: View {
                      ApplePaymentButton(action: {}) */
                     
                     PaymentButton()
-                } else {
+                }
+                
+                if  cartManager.f21Products.count > 0 {
+                    Text("Apple")
+                        .fontWeight(.bold)
+                        .font(.system(size: 15))
+                        .foregroundStyle(.gray)
+                    
+                    ForEach(cartManager.f21Products, id: \.id) { product in
+                        SweaterCartRow(product: product)
+                    }
+                    Divider()
+                    VStack (alignment: .leading){
+                        HStack {
+                            Text("Bag Subtotal")
+                                .bold()
+                                .font(.system(size: 25))
+                            Spacer()
+                            Text("AED \(cartManager.totalPrice3)")
+                        }
+                        HStack {
+                            Text("Includes VAT of")
+                                .bold()
+                            Spacer()
+                            Text("AED 25")
+                        }
+                        
+                        Text("Your Bag qualifies for free shipping")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                    }
+                    .padding()
+                    Divider()
+                    
+                    /* Official apple Payment button :
+                     ApplePaymentButton(action: {}) */
+                    
+                    PaymentButton()
+                }
+                
+                if  cartManager.macProducts.count > 0 {
+                    Text("Apple")
+                        .fontWeight(.bold)
+                        .font(.system(size: 25))
+                        .foregroundStyle(.gray)
+                    
+                    ForEach(cartManager.macProducts, id: \.id) { product in
+                        FoodCartRow(product: product)
+                    }
+                    Divider()
+                    VStack (alignment: .leading){
+                        HStack {
+                            Text("Bag Subtotal")
+                                .bold()
+                                .font(.system(size: 25))
+                            Spacer()
+                            Text("AED \(cartManager.totalPrice2)")
+                        }
+                        HStack {
+                            Text("Includes VAT of")
+                                .bold()
+                            Spacer()
+                            Text("AED 235")
+                        }
+                        
+                        Text("Your Bag qualifies for free shipping")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                    }
+                    .padding()
+                    Divider()
+                    
+                    /* Official apple Payment button :
+                     ApplePaymentButton(action: {}) */
+                    
+                    PaymentButton()
+                }
+                
+                else {
                     VStack {
                         Image(systemName: "basket")
                             .resizable()
@@ -55,14 +139,14 @@ struct CartView: View {
                     }
                     .padding(.top, 170)
                 }
+            }
             
-        
-      }
-      .navigationTitle("my Cart")
+        }
     }
 }
 
 #Preview {
-        CartView()
-            .environmentObject(CartManager())
+    
+    CartView()
+        .environmentObject(CartManager())
 }
