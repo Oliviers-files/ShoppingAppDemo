@@ -17,7 +17,7 @@ struct AppleOptionView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows, spacing: 20) {
                 
-                NavigationLink(destination: ProMaxView(product: productList[1])) {
+                NavigationLink(destination: AppleProductInfo(product: productList[1])) {
                     VStack(alignment: .leading) {
                         
                         VStack (alignment: .leading, spacing: 5){
@@ -104,7 +104,7 @@ struct AppleOptionView: View {
                 .padding(.leading)
                 
                 
-                NavigationLink(destination: ProMaxView(product: productList[0])) {
+                NavigationLink(destination: AppleProductInfo(product: productList[0])) {
                     ZStack {
                         VStack {
                             
@@ -176,7 +176,7 @@ struct AppleOptionView: View {
                     .shadow(radius: 5)
                 }
                 
-                NavigationLink(destination: ProMaxView(product: productList[4])) {
+                NavigationLink(destination: AppleProductInfo(product: productList[4])) {
                     
                     ZStack {
                         VStack {

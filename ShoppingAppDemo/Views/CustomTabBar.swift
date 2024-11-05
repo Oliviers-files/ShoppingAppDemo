@@ -18,7 +18,7 @@ struct CustomTabBar: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
-                ItemView()
+                ContentView()
                     .tabItem { Image(systemName: selectedTab == 0 ? "house.fill" : "house")
                             .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
                             .padding(.top,120)

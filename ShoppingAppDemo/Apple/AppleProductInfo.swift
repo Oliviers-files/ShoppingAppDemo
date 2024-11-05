@@ -1,5 +1,5 @@
 //
-//  ProMaxView.swift
+//  AppleProductInfo.swift
 //  ShoppingAppDemo
 //
 //  Created by Stellone Olivier on 05/10/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProMaxView: View {
+struct AppleProductInfo: View {
     var product: AppleProduct
     @EnvironmentObject var cartManager: CartManager
     
@@ -104,7 +104,7 @@ struct ProMaxView: View {
 
 #Preview {
     NavigationView {
-        ProMaxView(product: productList[0])
+        AppleProductInfo(product: productList[0])
             .environmentObject(CartManager())
     }
 }

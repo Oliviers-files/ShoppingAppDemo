@@ -60,7 +60,7 @@ struct AppleProductCard: View {
                             Button {
                                 print("see/Buy product")
                             } label: {
-                                NavigationLink(destination: ProMaxView(product: product)) {
+                                NavigationLink(destination: AppleProductInfo(product: product)) {
                                     RoundedRectangle(cornerRadius: 40)
                                         .fill(Color.black)
                                         .frame(width: 80, height: 50)
